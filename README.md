@@ -1,12 +1,12 @@
 # PharmaFlow by WaadAlwagdani
 
-![Tests](https://github.com/waad-alwagdani/pharmaflow/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/waad-alwagdani/pharmaflow.bywn/actions/workflows/tests.yml/badge.svg)
 
 **Delivery performance and cost in global HIV & malaria medicine supply chains** — an end-to-end data analysis project by **Waad Alwagdani, PharmD** (وعد الوقداني), pharmacist with a focus on pharmaceutical supply chain management.
 
 10,324 real shipment lines from the USAID Supply Chain Management System (SCMS): antiretrovirals and HIV/malaria test kits shipped to 43 countries between 2006 and 2015, worth $1.63 billion.
 
-![Dashboard](reports/figures/dashboard_preview.png)
+![Dashboard](pharmaflow/reports/figures/dashboard_preview.png)
 
 ## Key findings
 
@@ -30,14 +30,15 @@
 | **Data cleaning** | Latin-1 encoding, two date formats mixed with text, numbers stored as text, cross-row references (`See DN-304 (ID#:10589)`), shared freight de-duplicated so totals are not inflated, before/after quality report |
 | **Data analysis** | on-time rate, delay distribution, lead time, cost per kg, freight % of value, vendor scorecard, price trend |
 | **Matplotlib / Seaborn** | custom theme, annotated line and bar charts, heatmap, log-scale scatter (`viz.py`) |
-| **EDA** | `notebooks/pharmaflow_analysis.ipynb`: audit → cleaning → 6 questions → conclusions |
+| **EDA** | [`pharmaflow_analysis.ipynb`](pharmaflow/notebooks/pharmaflow_analysis.ipynb): audit → cleaning → 6 questions → conclusions |
 | **Dashboard** | `dashboard/app.py`: Streamlit + Altair, filters by year, product, mode, channel and country; CSV export |
 | **Testing** | `tests/test_pipeline.py`: edge cases on a hand-built fixture + checks on the real data, run by GitHub Actions |
 
 ## Project structure
 
 ```
-pharmaflow/            analysis package
+pharmaflow/                 project folder
+pharmaflow/pharmaflow/      analysis package
 ├── io.py              load raw / cleaned data
 ├── cleaning.py        cleaning pipeline (each step is a function)
 ├── metrics.py         KPIs and grouped summaries
@@ -54,7 +55,8 @@ tests/                 unit tests
 
 ```bash
 pip install -r requirements.txt
-streamlit run dashboard/app.py                 # dashboard
+cd pharmaflow
+streamlit run dashboard/app.py                 # dashboard (Streamlit Cloud entry point: pharmaflow/dashboard/app.py)
 jupyter notebook notebooks/pharmaflow_analysis.ipynb
 python -m unittest discover -s tests -v         # tests
 ```
