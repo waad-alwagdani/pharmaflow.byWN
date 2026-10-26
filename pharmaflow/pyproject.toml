@@ -1,0 +1,9 @@
+# PharmaFlow by WaadAlwagdani — © 2026 Waad Alwagdani. All rights reserved.
+[project]
+name = "pharmaflow"
+version = "1.0.0"
+description = "PharmaFlow by WaadAlwagdani — global medicine shipment delivery and cost analysis"
+authors = [{ name = "Waad Alwagdani (WaadAlwagdani)", email = "waadnalwagdani@gmail.com" }]
+license = { text = "Proprietary — All rights reserved" }
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.1", "numpy>=1.26", "matplotlib>=3.8", "seaborn>=0.13"]
